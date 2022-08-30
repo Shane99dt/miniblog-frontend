@@ -19,16 +19,17 @@ const Categories = () => {
   return(
     <>
       <H1>Categories</H1>
-      {categories.map(category => {
-        return(
-          <div key={category.slug}>
-            <Link key={category.slug} to={`/articles/categories/${category.slug}`}>
-              <p>{category.name}</p>
-            </Link>
-          </div>
-          // <Category category={category} text='delete' />
-        )
-      })}
+      <section className='flex flex-col gap-2'>
+        {categories.map(category => {
+          return(
+            <div key={category.slug} className='flex flex-col'>
+              <Link to={`/articles/categories/${category.slug}`}>
+                <Category category={category.name}/>
+              </Link>
+            </div>
+          )
+        })}
+      </section>
     </>
 
   )

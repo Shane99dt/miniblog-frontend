@@ -33,5 +33,13 @@ const postArticle = async (slug, body) => {
 }
 
 
+const deleteArticle = async (slug, slugArticle) => {
+  const request = await fetch(`http://localhost:5000/articles/categories/${slug}/${slugArticle}`, {
+    method:"DELETE"
+  })
+  return request
+}
 
-export { getArticles, getFilteredArticles, getArticle, postArticle }
+
+
+export { getArticles, getFilteredArticles, getArticle, postArticle, deleteArticle }

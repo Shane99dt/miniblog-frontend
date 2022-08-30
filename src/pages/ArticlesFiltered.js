@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import { getArticles, getFilteredArticles } from '../api/articles'
 import { getCategories } from '../api/categories'
+import ArticleCard from '../components.js/ArticleCard'
 import H1 from '../components.js/H1'
 
 const ArticlesFiltered = () => {
@@ -22,13 +23,19 @@ const ArticlesFiltered = () => {
   return(
     <>
       <H1>{category.name}</H1>
-      {articles.map(article => {
-        return (
-          <Link key={article.slug} to={`/articles/categories/${article.category}/${article.slug}`}>
-            <p>{article.title}</p>
-          </Link>
-        )
-      })}
+      <section className='flex flex-col gap-2'>
+        {articles.map(article => {
+          return (
+            <Link key={article.slug} to={`/articles/categories/${article.category}/${article.slug}`}>
+              <ArticleCard
+                author={article.author}
+                title={article.title}
+                category={article.category}
+                />
+            </Link>
+          )
+        })}
+      </section>
     </>
 
   )

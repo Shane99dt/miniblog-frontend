@@ -1,13 +1,15 @@
 import { useEffect, useState } from 'react'
-import { Link, useParams } from 'react-router-dom'
-import { getArticle } from '../api/articles'
+import { Link, useNavigate, useParams } from 'react-router-dom'
+import { deleteArticle, getArticle } from '../api/articles'
 import H1 from '../components.js/H1'
 import 'moment'
-import moment from 'moment'
+import Button from '../components.js/Button'
+import ArticleBody from '../components.js/ArticleBody'
 
 const Article = () => {
   const [ article, setArticle ] = useState([])
   const { slug, slugArticle } = useParams()
+  const navigate = useNavigate()
 
   useEffect(() => {
     fetchData()
@@ -18,12 +20,22 @@ const Article = () => {
     setArticle(data)
   }
 
+  const handleDeleteArticle = async () => {
+    const data = await deleteArticle(slug, slugArticle)
+    if(data.status === 201){
+      navigate('/articles')
+    }
+  }
+
   return(
     <>
       <H1>{article.title}</H1>
-      <p>by {article.author}</p>
-      <small>{moment(article.date).format('LLL')}</small>
-      <p>{article.description}</p>
+      <ArticleBody
+        author={article.author}
+        date={article.date}
+        description={article.description}
+      />
+      <Button text='delete article' onBtnClick={handleDeleteArticle}/>
     </>
 
   )

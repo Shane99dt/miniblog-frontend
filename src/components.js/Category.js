@@ -1,13 +1,9 @@
-import { Link } from "react-router-dom"
-import Button from "./Button"
-
-const Category = ({ category, text }) => {
+const Category = ({ category}) => {
   return(
-    <div>
-      <Link key={category.slug} to={`/articles/categories/${category.slug}`}>
-        <p>{category.name}</p>
-      </Link>
-      <Button text={text} />
+    <div className="relative py-2 px-4 border border-gray-400 rounded hover:bg-gray-300">
+      <div className='flex flex-row items-center justify-between'>
+        <p className="font-medium text-xl capitalize">{category}</p>
+      </div>
     </div>
   )
 }
