@@ -21,7 +21,7 @@ const Categories = () => {
       <H1>Categories</H1>
       {categories.map(category => {
         return(
-          <div>
+          <div key={category.slug}>
             <Link key={category.slug} to={`/articles/categories/${category.slug}`}>
               <p>{category.name}</p>
             </Link>

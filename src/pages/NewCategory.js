@@ -34,7 +34,12 @@ const NewCategory = () => {
       navigate(`/categories`)
     }else{
       setErrors(data.response)
-      console.log(data.response)
+      // if(typeof(data.response)=== "object"){
+      //   console.log('ob')
+      //   setErrors(data.response)
+      // }else{
+      //   alert(data.response)
+      // }
     }
   }
 
@@ -51,6 +56,7 @@ const NewCategory = () => {
             labelId = "categoryName"
             type="text"
             onChange={handleChangeName}
+            // errors={typeof(errors)=== "object"?(errors.filter(error => error.param === 'name')):(errors)}
             errors={errors.filter(error => error.param === 'name')}
           />
           <TextArea
@@ -58,6 +64,7 @@ const NewCategory = () => {
             placeholder="Description"
             labelId = "description"
             onChange={handleChangeDescription}
+            // errors={typeof(errors)=== "object"?(errors.filter(error => error.param === 'description')):(errors)}
             errors={errors.filter(error => error.param === 'description')}
           />
         </div>
