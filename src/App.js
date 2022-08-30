@@ -1,25 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import Container from './components.js/Container'
+import Navbar from './components.js/Navbar'
+import Article from './pages/Article'
+import Articles from './pages/Articles'
+import ArticlesFiltered from './pages/ArticlesFiltered'
+import Categories from './pages/Categories'
+import Home from './pages/Home'
+import NewArticle from './pages/NewArticle'
+import NewCategory from './pages/NewCategory'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+const App = () => {
+  return(
+    <BrowserRouter>
+      <Navbar/>
+      <Container>
+        <Routes>
+          <Route path="/" element={<Home/>}/>
+          <Route path="/categories" element={<Categories/>}/>
+          <Route path="/articles" element={<Articles/>}/>
+          <Route path="/articles/categories/:slug" element={<ArticlesFiltered/>}/>
+          <Route path="/articles/categories/:slug/:slugArticle" element={<Article/>}/>
+          <Route path="/new-article" element={<NewArticle/>}/>
+          <Route path="/new-category" element={<NewCategory/>}/>
+        </Routes>
+      </Container>
+    </BrowserRouter>
+  )
 }
 
-export default App;
+export default App
