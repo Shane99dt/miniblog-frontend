@@ -34,12 +34,6 @@ const NewCategory = () => {
       navigate(`/categories`)
     }else{
       setErrors(data.response)
-      // if(typeof(data.response)=== "object"){
-      //   console.log('ob')
-      //   setErrors(data.response)
-      // }else{
-      //   alert(data.response)
-      // }
     }
   }
 
@@ -56,16 +50,18 @@ const NewCategory = () => {
             labelId = "categoryName"
             type="text"
             onChange={handleChangeName}
-            // errors={typeof(errors)=== "object"?(errors.filter(error => error.param === 'name')):(errors)}
+            value={name}
             errors={errors.filter(error => error.param === 'name')}
+            required
           />
           <TextArea
             label="description"
             placeholder="Description"
             labelId = "description"
             onChange={handleChangeDescription}
-            // errors={typeof(errors)=== "object"?(errors.filter(error => error.param === 'description')):(errors)}
+            value={description}
             errors={errors.filter(error => error.param === 'description')}
+            required
           />
         </div>
         <Button

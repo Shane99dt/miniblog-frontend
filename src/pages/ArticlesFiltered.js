@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
-import { getArticles, getFilteredArticles } from '../api/articles'
-import { getCategories } from '../api/categories'
+import { getFilteredArticles } from '../api/articles'
 import ArticleCard from '../components.js/ArticleCard'
 import H1 from '../components.js/H1'
 
@@ -23,6 +22,9 @@ const ArticlesFiltered = () => {
   return(
     <>
       <H1>{category.name}</H1>
+      <div className='mb-5'>
+        <p className='first-letter:capitalize text-xl'>{category.description}</p>
+      </div>
       <section className='flex flex-col gap-2'>
         {articles.map(article => {
           return (

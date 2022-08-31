@@ -54,11 +54,6 @@ const NewArticle = () => {
     if(data.status === 201){
       navigate(`/articles/categories/${category}/${slugifiedTitle}`)
     }else{
-      // if(typeof(data.response)=== "object"){
-      //   setErrors(data.response)
-      // }else{
-      //   alert(data.response)
-      // }
       setErrors(data.response)
     }
   }
@@ -80,8 +75,9 @@ const NewArticle = () => {
             labelId="category"
             onSelectChange={handleChangeSelect}
             selectOptions={categories}
-            // errors={errors.filter(error => error.param === 'category')}
-            errors={typeof(errors)=== "object"?(errors.filter(error => error.param === 'category')):(errors)}
+            value={category}
+            errors={errors.filter(error => error.param === 'category')}
+            required
           />
           <Input
             label="author"
@@ -89,8 +85,9 @@ const NewArticle = () => {
             labelId = "author"
             type="text"
             onChange={handleChangeAuthor}
-            // errors={errors.filter(error => error.param === 'author')}
-            errors={typeof(errors)=== "object"?(errors.filter(error => error.param === 'author')):(errors)}
+            value={author}
+            errors={errors.filter(error => error.param === 'author')}
+            required
           />
           <Input
             label="title"
@@ -98,16 +95,18 @@ const NewArticle = () => {
             labelId = "title"
             type="text"
             onChange={handleChangeTitle}
-            // errors={errors.filter(error => error.param === 'title')}
-            errors={typeof(errors)=== "object"?(errors.filter(error => error.param === 'title')):(errors)}
+            value={title}
+            errors={errors.filter(error => error.param === 'title')}
+            required
           />
           <TextArea
             label="description"
             placeholder="Description"
             labelId = "description"
             onChange={handleChangeDescription}
-            // errors={errors.filter(error => error.param === 'description')}
-            errors={typeof(errors)=== "object"?(errors.filter(error => error.param === 'description')):(errors)}
+            value={description}
+            errors={errors.filter(error => error.param === 'description')}
+            required
           />
         </div>
         <Button
