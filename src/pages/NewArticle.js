@@ -70,7 +70,7 @@ const NewArticle = () => {
       <H1>new article</H1>
       <form onSubmit={handleSubmit}>
         <div>
-        <Select
+          <Select
             label="category"
             labelId="category"
             onSelectChange={handleChangeSelect}
@@ -112,6 +112,7 @@ const NewArticle = () => {
         <Button
           text="Submit"
           type="submit"
+          className="mx-3 w-[50%] sm:w-auto"
         />
       </form>
     </>

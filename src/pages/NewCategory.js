@@ -67,6 +67,7 @@ const NewCategory = () => {
         <Button
           text="Submit"
           type="submit"
+          className="mx-3 w-[50%] sm:w-auto"
         />
       </form>
     </>

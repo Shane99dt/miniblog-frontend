@@ -22,7 +22,7 @@ const Navbar = () => {
     <>
       <nav className="p-5 bg-stone-100 shadow md:flex md:items-center md:justify-between text-gray-800 font-medium">
         <div className="flex justify-between items-center ">
-          <Link className="text-2xl cursor-pointer uppercase font-semibold" to='/'>
+          <Link className="text-2xl cursor-pointer uppercase font-semibold" to='/' onClick={handleClickListItem}>
             Blog
           </Link>
 
