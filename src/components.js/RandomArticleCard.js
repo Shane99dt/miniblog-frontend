@@ -10,7 +10,7 @@ const RandomArticleCard = ({ author, title, category, date, description }) => {
       <div className="absolute top-0 left-0 bg-gray-500/40 hover:bg-gray-500/70 px-4 py-1 rounded-br capitalize">
         <Link to={`/articles/categories/${category}`}>{category}</Link>
       </div>
-      <div className="absolute bottom-2 right-4">
+      <div className="absolute bottom-2 sm:right-4 right-1">
         <small className="first-letter:capitalize">written by <span className="capitalize font-medium">{author}</span> on {moment(date).format('LLL')}</small>
       </div>
     </div>

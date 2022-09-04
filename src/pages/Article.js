@@ -41,9 +41,7 @@ const Article = () => {
     <>
       <H1>{article.title}</H1>
       <ArticleBody
-        author={article.author}
-        date={article.date}
-        description={article.description}
+        article={article}
       />
       {showDelete ? (
         <DeleteNotification btnDeleteFnc={handleDeleteArticle} btnCancelFnc={handleClickShowDelete}/>
